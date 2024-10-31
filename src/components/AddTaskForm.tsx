@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { CiCirclePlus } from "react-icons/ci";
+import useTheme from "../hooks/useTheme";
 
-const AddTaskForm = ({ onAddTask, darkTheme }) => {
+const AddTaskForm = ({ onAddTask }: { onAddTask: (title: string) => void }) => {
   const [title, setTitle] = useState("");
+  const { themeState } = useTheme();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,13 +17,11 @@ const AddTaskForm = ({ onAddTask, darkTheme }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div
-        className={` ${
-          darkTheme ? "bg-gray-800" : "bg-white"
-        } w-full  flex space-x-2 items-center  rounded-lg px-4`}
+        className={`${themeState.backgroundPrimaryLightColor} w-full  flex space-x-2 items-center  rounded-lg px-4 transition-all`}
       >
         <CiCirclePlus size={28} className="px-0 text-gray-500" />
         <input
-          className=" bg-transparent w-full h-fit p-1 py-4 text-lg"
+          className=" bg-transparent w-full h-fit p-1 py-4 text-lg "
           type="text"
           placeholder="Add a new task..."
           value={title}
