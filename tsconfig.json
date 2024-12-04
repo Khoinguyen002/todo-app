@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "jsx": "react",
+      "target": "ES6",                                // Phiên bản JavaScript đầu ra (ES6, ES2015, ES2017,...)
+      "module": "commonjs",                          // Module system (commonjs, esnext, etc.)
+      "strict": true,                                // Bật chế độ strict cho TypeScript
+      "esModuleInterop": true,                       // Hỗ trợ import module ES
+      "skipLibCheck": true,                          // Bỏ qua kiểm tra type trong thư viện
+      "forceConsistentCasingInFileNames": true,      // Kiểm tra chính xác tên file
+      "rootDir": "./src",                            // Thư mục gốc của mã nguồn
+      "resolveJsonModule": true,                     // Hỗ trợ import file JSON
+      "allowSyntheticDefaultImports": true,         // Hỗ trợ import mặc định giả lập
+      "sourceMap": true                              // Tạo file source map để debug
+    },
+    "include": ["src"],                              // Chỉ định các file/thư mục được biên dịch
+    "exclude": ["node_modules", "**/*.spec.ts"]     // Loại trừ các file/thư mục không cần biên dịch
+  }

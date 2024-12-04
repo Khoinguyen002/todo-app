@@ -1,8 +1,14 @@
-import { useContext } from "react";
-import { themeContext } from "../context/themeContext";
+import { useAtomSelector } from "reactjs-statify";
+import { themeAtom } from "../state-management/theme";
+import { ThemeType } from "../types/theme";
+import { themeStateByTypeCollection } from "../data/theme";
 
 const useTheme = () => {
-  const { setTypeOfTheme, themeState } = useContext(themeContext);
+  const themeState = useAtomSelector({ atom: themeAtom, props: "themeState" });
+
+  const setTypeOfTheme = (type: ThemeType) => {
+    themeAtom.set("themeState", themeStateByTypeCollection[type]);
+  };
 
   return { setTypeOfTheme, themeState };
 };

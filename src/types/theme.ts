@@ -1,6 +1,5 @@
 export type ThemeContext = {
   themeState: ThemeState;
-  setTypeOfTheme: (type: ThemeType) => void;
 };
 
 export type ThemeState = {

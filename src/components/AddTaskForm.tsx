@@ -6,7 +6,7 @@ const AddTaskForm = ({ onAddTask }: { onAddTask: (title: string) => void }) => {
   const [title, setTitle] = useState("");
   const { themeState } = useTheme();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (title.trim()) {
       onAddTask(title.trim());

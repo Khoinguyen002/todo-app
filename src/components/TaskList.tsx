@@ -1,7 +1,18 @@
 import React from "react";
 import Task from "./Task";
+import { Task as TaskType } from "../types/task";
 
-const TaskList = ({ tasks, onEditTask, onDeleteTask, onToggleCompleted }) => {
+const TaskList = ({
+  tasks,
+  onEditTask,
+  onDeleteTask,
+  onToggleCompleted,
+}: {
+  tasks: TaskType[];
+  onEditTask: (id: number, title: string) => void;
+  onDeleteTask: (id: number) => void;
+  onToggleCompleted: (id: number) => void;
+}) => {
   const reversedTasks = tasks.slice().reverse();
   return (
     <ul className=" ">
