@@ -1,7 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useAtomSelector } from "reactjs-statify";
 import { tasksAtom } from "../state-management/task";
 import TaskList from "./TaskList";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../config/firebase";
+import { Task } from "../types/task";
 
 const TaskListContainer = () => {
   const tasks = useAtomSelector({ atom: tasksAtom, props: "tasks" });
@@ -32,6 +35,17 @@ const TaskListContainer = () => {
       )
     );
   };
+
+  useEffect(() => {
+    getDocs(collection(db, "todo")).then((res) => {
+      const tasks = res.docs.map((doc) => {
+        return doc.data();
+      });
+      console.log(tasks);
+
+      tasksAtom.set("tasks", tasks as Task[]);
+    });
+  }, []);
 
   console.log("TaskList Rerender");
 
