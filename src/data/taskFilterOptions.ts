@@ -1,4 +1,4 @@
-import { Options } from "../types/FilterOptions";
+import { Options } from "../types/filterOptions";
 import { TaskFilterStatus } from "../types/task";
 
 export const filterOptions: Options<TaskFilterStatus>[] = [
